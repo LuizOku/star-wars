@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class SearchLog extends Model
 {
-    protected $fillable = ['query', 'duration_ms'];
+    protected $fillable = ['query', 'search_type', 'duration_ms', 'results_count'];
 }
