@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌌 Star Wars Search Frontend
 
-## Getting Started
+Next.js frontend application for searching Star Wars characters and movies using the Star Wars API.
 
-First, run the development server:
+---
 
+## ✨ Features
+
+✅ **Character Search** – Search for Star Wars characters with real-time results  
+✅ **Movie Search** – Search for Star Wars films  
+✅ **Character Details** – View detailed character information and associated films  
+✅ **Movie Details** – View movie details with opening crawl and character lists  
+✅ **Responsive Design** – Works on desktop and mobile devices  
+✅ **Modern UI** – Built with Tailwind CSS v4 and custom design system  
+✅ **TypeScript** – Full type safety throughout the application  
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+- Backend API running on `http://localhost:8000`
+
+### Development Setup
+
+1️⃣ **Install dependencies:**
+```bash
+npm install
+# or
+yarn install
+```
+
+2️⃣ **Start the development server:**
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3️⃣ **Open your browser:**
+Navigate to [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+### Docker Setup
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+docker build -t star-wars-frontend .
+docker run -p 3000:3000 star-wars-frontend
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎯 Application Features
 
-## Deploy on Vercel
+### 🔎 Search Interface
+- **Dual search types**: Switch between People and Movies
+- **Real-time search**: Results update as you type
+- **Dynamic placeholders**: Context-aware search hints
+- **Results display**: Clean list with "SEE DETAILS" buttons
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 👤 Character Details
+- **Personal information**: Birth year, gender, physical attributes
+- **Associated films**: Clickable links to movie details
+- **Two-column layout**: Details on left, movies on right
+- **Navigation**: Easy return to search
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🎬 Movie Details  
+- **Opening crawl**: Full Star Wars opening text
+- **Character list**: All characters with clickable links
+- **Movie metadata**: Director, release date, episode info
+- **Dynamic data**: Characters fetched in real-time from SWAPI
+
+---
+
+## 🔧 Technologies Used
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4 with @theme configuration
+- **HTTP Client**: Fetch API with custom service layer
+- **Fonts**: Montserrat via Next.js font optimization
+- **Container**: Docker with multi-stage builds
+
+---
+
+## 🌐 API Integration
+
+The frontend connects to the Star Wars API backend:
+
+- **Search**: `GET /api/search?query={query}&type={type}`
+- **Character Details**: `GET /api/people/{uid}`  
+- **Movie Details**: `GET /api/movies/{uid}`
+
+**Base URL**: `http://localhost:8000`
+
+---
+
+## 📱 Responsive Design
+
+- **Mobile-first**: Optimized for mobile devices
+- **Grid layouts**: Responsive columns that stack on mobile
+- **Touch-friendly**: Proper button sizes and spacing
+- **Typography**: Scales appropriately across devices
+
+---
+
+## 🚢 Deployment
+
+### Docker
+```bash
+docker build -t star-wars-frontend .
+docker run -p 3000:3000 -e NEXT_PUBLIC_API_URL=https://your-api.com star-wars-frontend
+```
+
+### Environment Variables
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:8000  # Backend API URL
+```
+
+---
+
+## 📄 License
+
+MIT – see LICENSE file for details.

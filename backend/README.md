@@ -20,20 +20,153 @@ Laravel API for searching Star Wars characters using [SWAPI](https://swapi.tech)
 
 ## 🔗 API Endpoints
 
-### 🔎 Search Characters
+### 🔎 Search
 
-GET /api/search?query=skywalker
+**GET** `/api/search?query={query}&type={type}`
 
-Returns data from SWAPI filtered by your query.
+Search for Star Wars characters or movies.
+
+**Parameters:**
+- `query` (required): Search term (e.g., "skywalker", "hope")
+- `type` (optional): "people" or "movies" (defaults to "people")
+
+**Examples:**
+```bash
+GET /api/search?query=skywalker&type=people
+GET /api/search?query=hope&type=movies
+GET /api/search?query=vader
+```
+
+**Response:**
+```json
+{
+  "message": "Search completed",
+  "result": [
+    {
+      "uid": "1",
+      "name": "Luke Skywalker",
+      "url": "https://swapi.tech/api/people/1"
+    }
+  ],
+  "total_records": 1
+}
+```
+
+---
+
+### 👤 Get Person Details
+
+**GET** `/api/people/{uid}`
+
+Get detailed information about a specific character and their associated films.
+
+**Parameters:**
+- `uid` (required): Character ID from SWAPI
+
+**Example:**
+```bash
+GET /api/people/1
+```
+
+**Response:**
+```json
+{
+  "message": "Person details retrieved successfully",
+  "result": {
+    "uid": "1",
+    "properties": {
+      "name": "Luke Skywalker",
+      "birth_year": "19BBY",
+      "gender": "male",
+      "height": "172",
+      "mass": "77",
+      "eye_color": "blue",
+      "hair_color": "blond"
+    }
+  },
+  "films": [
+    {
+      "uid": "1",
+      "name": "A New Hope"
+    }
+  ]
+}
+```
+
+---
+
+### 🎬 Get Movie Details
+
+**GET** `/api/movies/{uid}`
+
+Get detailed information about a specific movie and its characters.
+
+**Parameters:**
+- `uid` (required): Movie ID from SWAPI
+
+**Example:**
+```bash
+GET /api/movies/1
+```
+
+**Response:**
+```json
+{
+  "message": "Movie details retrieved successfully",
+  "result": {
+    "uid": "1",
+    "properties": {
+      "title": "A New Hope",
+      "episode_id": 4,
+      "opening_crawl": "It is a period of civil war...",
+      "director": "George Lucas",
+      "release_date": "1977-05-25"
+    }
+  },
+  "characters": [
+    {
+      "uid": "1",
+      "name": "Luke Skywalker"
+    }
+  ]
+}
+```
+
+---
 
 ### 📊 Get Statistics
 
-GET /api/stats
+**GET** `/api/stats`
 
-Returns cached stats:
-- Top 5 queries (with percentages)
-- Average search duration
-- Most popular hour for searches
+Returns cached search statistics (updated every 5 minutes).
+
+**Example:**
+```bash
+GET /api/stats
+```
+
+**Response:**
+```json
+{
+  "top_queries": {
+    "hope": {
+      "count": 8,
+      "percentage": 21.05
+    },
+    "skywalker": {
+      "count": 4,
+      "percentage": 10.53
+    }
+  },
+  "average_duration_ms": 615.23,
+  "most_popular_hour": 16
+}
+```
+
+**Statistics Include:**
+- Top 5 most searched queries with percentages
+- Average search duration in milliseconds
+- Most popular hour for searches (0-23)
 
 ---
 
@@ -55,21 +188,6 @@ docker-compose exec app php artisan migrate
 docker-compose exec app php artisan schedule:run
 
 Your API will be available at http://localhost:8000.
-
----
-
-## 🗂️ Project Structure Highlights
-
-backend/
-├── app/
-│   ├── Http/Controllers/        # API controllers (Search, Stats)
-│   ├── Models/SearchLog.php     # Model for search logs
-│   └── Console/Kernel.php       # Scheduler with stats recomputation
-├── routes/api.php               # API routes
-├── database/migrations/         # DB migrations (logs, cache table)
-├── Dockerfile                   # App Dockerfile
-├── docker-compose.yml           # App + MySQL services
-└── .env.example                 # Environment template
 
 ---
 
