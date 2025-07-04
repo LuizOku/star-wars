@@ -24,6 +24,22 @@ services:
     ports:
       - "8000:80" # maps localhost:8000 to container's Nginx port
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: nextjs-frontend
+    container_name: nextjs-frontend
+    restart: unless-stopped
+    networks:
+      - app-network
+    depends_on:
+      - app
+    environment:
+      - NEXT_PUBLIC_API_URL=http://laravel-app/api
+    ports:
+      - "3000:3000" # maps localhost:3000 to Next.js port
+
   db:
     image: mysql:8.0
     container_name: mysql-db
