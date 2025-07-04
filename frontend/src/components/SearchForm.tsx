@@ -74,7 +74,7 @@ const SearchForm: FC<SearchFormProps> = ({
       <Button
         onClick={onSearch}
         disabled={loading || !query}
-        className="mt-3"
+        className="mt-3 w-full"
       >
         {loading ? 'SEARCHING...' : 'SEARCH'}
       </Button>

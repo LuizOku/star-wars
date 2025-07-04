@@ -36,9 +36,9 @@ const RadioGroup: FC<RadioGroupProps> = ({
             value={option.value}
             checked={value === option.value}
             onChange={() => onChange(option.value)}
-            className="w-4 h-4 text-blue-600"
+            className="w-4 h-4 text-emerald"
           />
-          <span className="text-dark-grey font-bold">{option.label}</span>
+          <span className="text-dark-grey text-md font-bold">{option.label}</span>
         </label>
       ))}
     </div>

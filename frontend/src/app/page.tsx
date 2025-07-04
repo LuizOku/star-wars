@@ -32,7 +32,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen">
       <Header />
 
       <main className="container mx-auto px-4 py-8">
@@ -49,7 +49,7 @@ export default function HomePage() {
             />
           </div>
           <div>
-            <ResultsList results={results} loading={loading} />
+            <ResultsList results={results} loading={loading} searchType={searchType} />
           </div>
         </div>
       </main>
