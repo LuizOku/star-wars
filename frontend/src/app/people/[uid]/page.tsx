@@ -6,40 +6,15 @@ import Header from '@/components/ui/Header';
 import Button from '@/components/ui/Button';
 import { api } from '@/services/api';
 import Link from 'next/link';
+import { PersonDetails, PersonFilm, PersonResponse } from '@/shared/interfaces/person';
 
-interface PersonDetails {
-  uid: string;
-  properties: {
-    name: string;
-    height: string;
-    mass: string;
-    hair_color: string;
-    skin_color: string;
-    eye_color: string;
-    birth_year: string;
-    gender: string;
-    homeworld: string;
-    films: string[];
-  };
-  description: string;
-}
 
-interface Film {
-  uid: string;
-  name: string;
-}
-
-interface PersonResponse {
-  message: string;
-  result: PersonDetails;
-  films: Film[];
-}
 
 export default function PersonDetailPage() {
   const params = useParams();
   const router = useRouter();
   const [person, setPerson] = useState<PersonDetails | null>(null);
-  const [films, setFilms] = useState<Film[]>([]);
+  const [films, setFilms] = useState<PersonFilm[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -68,8 +43,65 @@ export default function PersonDetailPage() {
       <div className="min-h-screen">
         <Header />
         <main className="container mx-auto px-4 py-8">
-          <div className="flex justify-center items-center min-h-96">
-            <p className="text-xl text-dark-grey">Loading character details...</p>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg shadow p-8">
+              <div className="h-6 bg-gray-200 rounded w-48 mb-5 animate-pulse"></div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="space-y-4">
+                  <div className="h-5 bg-gray-200 rounded w-16 mb-4 animate-pulse"></div>
+                  <hr className="border-pinkish-grey mb-2" />
+                  <div className="space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex">
+                        <div className="h-4 bg-gray-200 rounded w-20 animate-pulse"></div>
+                        <div className="h-4 bg-gray-200 rounded w-16 ml-2 animate-pulse"></div>
+                      </div>
+                      <div className="flex">
+                        <div className="h-4 bg-gray-200 rounded w-16 animate-pulse"></div>
+                        <div className="h-4 bg-gray-200 rounded w-12 ml-2 animate-pulse"></div>
+                      </div>
+                      <div className="flex">
+                        <div className="h-4 bg-gray-200 rounded w-20 animate-pulse"></div>
+                        <div className="h-4 bg-gray-200 rounded w-10 ml-2 animate-pulse"></div>
+                      </div>
+                      <div className="flex">
+                        <div className="h-4 bg-gray-200 rounded w-20 animate-pulse"></div>
+                        <div className="h-4 bg-gray-200 rounded w-14 ml-2 animate-pulse"></div>
+                      </div>
+                      <div className="flex">
+                        <div className="h-4 bg-gray-200 rounded w-16 animate-pulse"></div>
+                        <div className="h-4 bg-gray-200 rounded w-8 ml-2 animate-pulse"></div>
+                      </div>
+                      <div className="flex">
+                        <div className="h-4 bg-gray-200 rounded w-12 animate-pulse"></div>
+                        <div className="h-4 bg-gray-200 rounded w-6 ml-2 animate-pulse"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="h-5 bg-gray-200 rounded w-16 mb-4 animate-pulse"></div>
+                  <hr className="border-pinkish-grey mb-2" />
+                  <div className="space-y-3">
+                    <div className="flex flex-wrap gap-1">
+                      <div className="h-4 bg-gray-200 rounded w-20 animate-pulse"></div>
+                      <div className="h-4 bg-gray-200 rounded w-1 animate-pulse"></div>
+                      <div className="h-4 bg-gray-200 rounded w-32 animate-pulse"></div>
+                      <div className="h-4 bg-gray-200 rounded w-1 animate-pulse"></div>
+                      <div className="h-4 bg-gray-200 rounded w-24 animate-pulse"></div>
+                      <div className="h-4 bg-gray-200 rounded w-1 animate-pulse"></div>
+                      <div className="h-4 bg-gray-200 rounded w-28 animate-pulse"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-12">
+                <div className="h-12 bg-gray-200 rounded-lg w-40 animate-pulse"></div>
+              </div>
+            </div>
           </div>
         </main>
       </div>

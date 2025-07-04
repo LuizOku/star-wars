@@ -4,8 +4,11 @@ import { useState } from 'react';
 import Header from '@/components/ui/Header';
 import SearchForm from '@/components/SearchForm';
 import ResultsList from '@/components/ResultsList';
-import { searchStarWars, SearchResult, SearchType } from '@/services/star-wars';
+import { api } from '@/services/api';
+import { SearchResponse, SearchResult } from '@/shared/interfaces/search';
 
+
+export type SearchType = 'people' | 'movies';
 export default function HomePage() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -20,8 +23,8 @@ export default function HomePage() {
     setError(null);
 
     try {
-      const searchResults = await searchStarWars(query, searchType);
-      setResults(searchResults);
+      const data = await api.get<SearchResponse>(`/search?query=${query}&type=${searchType}`);
+      setResults(data.result || []);
     } catch (err) {
       console.error('Search failed:', err);
       setError(err instanceof Error ? err.message : 'Search failed');

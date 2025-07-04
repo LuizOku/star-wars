@@ -2,14 +2,14 @@ import { FC, useCallback, useMemo } from 'react';
 import Input from './ui/Input';
 import Button from './ui/Button';
 import RadioGroup from './ui/RadioGroup';
-import { SearchType } from '@/services/star-wars';
+import { SearchType } from '@/app/page';
 
 const searchOptions = [
   { value: 'people', label: 'People' },
   { value: 'movies', label: 'Movies' }
 ];
 
-interface SearchFormProps {
+type SearchFormProps = {
   query: string;
   setQuery: (value: string) => void;
   onSearch: () => void;

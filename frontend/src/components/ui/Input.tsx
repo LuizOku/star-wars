@@ -1,5 +1,5 @@
 import { FC, InputHTMLAttributes } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/cn';
 
 const Input: FC<InputHTMLAttributes<HTMLInputElement>> = ({ className, ...props }) => (
   <input

@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/cn';
 
-interface RadioOption {
+type RadioOption = {
   value: string;
   label: string;
 }
 
-interface RadioGroupProps {
+type RadioGroupProps = {
   options: RadioOption[];
   value: string;
   onChange: (value: string) => void;

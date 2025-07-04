@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { useRouter } from 'next/navigation';
-import { SearchResult } from '@/services/star-wars';
 import Button from './ui/Button';
+import { SearchResult } from '@/shared/interfaces/search';
 
-interface ResultsListProps {
+type ResultsListProps = {
   results: SearchResult[];
   loading: boolean;
   searchType: 'people' | 'movies';
