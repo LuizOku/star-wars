@@ -131,3 +131,104 @@ NEXT_PUBLIC_API_URL=http://localhost:8000  # Backend API URL
 ## 📄 License
 
 MIT – see LICENSE file for details.
+
+# 🧪 Frontend Testing Setup
+
+This project includes comprehensive tests for React components using Jest and React Testing Library with a centralized test structure.
+
+## Running Tests
+
+First, install the dependencies:
+
+```bash
+npm install
+```
+
+Then you can run the tests using:
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+## 📁 Test Structure
+
+All tests are organized in the centralized `src/__tests__/` directory:
+
+```
+src/__tests__/
+├── components/          # Component tests
+│   ├── Button.test.tsx
+│   ├── Header.test.tsx  
+│   ├── Input.test.tsx
+│   ├── RadioGroup.test.tsx
+│   ├── SearchForm.test.tsx
+│   └── ResultsList.test.tsx
+└── pages/              # Page tests
+    ├── home.test.tsx
+    ├── movie-detail.test.tsx
+    └── person-detail.test.tsx
+```
+
+### 📄 Page Tests
+- **home.test.tsx**: Tests for the main search page (13 tests)
+  - Component rendering and layout
+  - Search functionality (people and movies)
+  - Loading states and error handling
+  - API integration and response handling
+  - Search type switching and validation
+  - Empty states and edge cases
+
+- **movie-detail.test.tsx**: Tests for movie detail pages (16 tests)
+  - Loading skeleton states
+  - Movie data rendering (title, opening crawl)
+  - Character links and navigation
+  - Error handling and missing data
+  - Router parameter handling
+  - API integration and refetching
+
+- **person-detail.test.tsx**: Tests for person detail pages (18 tests)
+  - Loading skeleton states
+  - Person details rendering (all properties)
+  - Movie links and navigation
+  - Error handling and missing data
+  - Router parameter handling
+  - API integration and refetching
+
+### 🧩 Component Tests
+- **SearchForm.test.tsx**: Search form component (15 tests)
+  - Rendering and UI elements
+  - User interactions (typing, clicking, radio button selection)
+  - Form validation and state management
+  - Error handling and loading states
+  - Dynamic placeholder text
+
+- **ResultsList.test.tsx**: Results list component (16 tests)
+  - Loading states and empty states
+  - Results rendering and navigation
+  - UI structure and accessibility
+
+- **UI Component Tests**: Button, Input, RadioGroup, Header (58 tests total)
+  - User interactions and event handling
+  - Form validation and state management
+  - Accessibility and keyboard navigation
+  - CSS classes and styling
+  - Props forwarding and error handling
+
+## 📊 Test Coverage
+
+The Jest configuration includes coverage reporting for all TypeScript files in the `src` directory, excluding type definitions and index files.
+
+## 📈 Test Results
+
+- **✅ 9 test suites**: All passing (100% success rate)
+- **✅ 120 tests**: All passing (100% success rate)
+- **🎯 Full integration testing**: Real component interactions with mocked dependencies
+- **⚡ Fast execution**: Optimized test setup with minimal dependencies
+

@@ -159,7 +159,7 @@ class SearchController extends Controller
                     $promises[$characterId] = $client->getAsync("https://swapi.tech/api/people/{$characterId}");
                 }
 
-                // Executa todas as requisições em paralelo
+                // Execute all requests in parallel
                 $results = Promise\Utils::settle($promises)->wait();
 
                 foreach ($results as $characterId => $result) {
