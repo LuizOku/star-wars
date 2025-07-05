@@ -85,7 +85,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(mockMovieData),
-    } as any);
+    } as unknown as Response);
 
     render(<MovieDetailPage />);
 
@@ -110,7 +110,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(movieDataNoCharacters),
-    } as any);
+    } as unknown as Response);
 
     render(<MovieDetailPage />);
 
@@ -126,7 +126,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 500,
-    } as any);
+    } as unknown as Response);
 
     render(<MovieDetailPage />);
 
@@ -142,7 +142,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce({ message: 'ok', result: null, characters: [] }),
-    } as any);
+    } as unknown as Response);
 
     render(<MovieDetailPage />);
 
@@ -168,7 +168,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(mockMovieData),
-    } as any);
+    } as unknown as Response);
 
     render(<MovieDetailPage />);
 
@@ -188,7 +188,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 500,
-    } as any);
+    } as unknown as Response);
 
     render(<MovieDetailPage />);
 
@@ -207,7 +207,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(mockMovieData),
-    } as any);
+    } as unknown as Response);
 
     render(<MovieDetailPage />);
 
@@ -241,7 +241,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(movieDataNoCrawl),
-    } as any);
+    } as unknown as Response);
 
     render(<MovieDetailPage />);
 
@@ -259,7 +259,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(mockMovieData),
-    } as any);
+    } as unknown as Response);
 
     render(<MovieDetailPage />);
 
@@ -288,7 +288,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 500,
-    } as any);
+    } as unknown as Response);
 
     render(<MovieDetailPage />);
 
@@ -306,7 +306,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(mockMovieData),
-    } as any);
+    } as unknown as Response);
 
     const { rerender } = render(<MovieDetailPage />);
 
@@ -330,7 +330,7 @@ describe('MovieDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(newMovieData),
-    } as any);
+    } as unknown as Response);
 
     rerender(<MovieDetailPage />);
 

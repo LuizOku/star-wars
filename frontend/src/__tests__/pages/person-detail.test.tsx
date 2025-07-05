@@ -83,7 +83,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(mockPersonData),
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
@@ -114,7 +114,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(personDataNoMovies),
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
@@ -130,7 +130,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 500,
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
@@ -146,7 +146,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce({ message: 'ok', result: null, films: [] }),
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
@@ -172,7 +172,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(mockPersonData),
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
@@ -192,7 +192,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 500,
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
@@ -211,7 +211,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(mockPersonData),
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
@@ -250,7 +250,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(personWithDifferentData),
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
@@ -271,7 +271,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(mockPersonData),
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
@@ -300,7 +300,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 500,
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
@@ -318,7 +318,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(mockPersonData),
-    } as any);
+    } as unknown as Response);
 
     const { rerender } = render(<PersonDetailPage />);
 
@@ -346,7 +346,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(newPersonData),
-    } as any);
+    } as unknown as Response);
 
     rerender(<PersonDetailPage />);
 
@@ -366,7 +366,7 @@ describe('PersonDetailPage', () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
       json: jest.fn().mockResolvedValueOnce(personWithOneMovie),
-    } as any);
+    } as unknown as Response);
 
     render(<PersonDetailPage />);
 
